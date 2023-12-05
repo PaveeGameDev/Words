@@ -1,50 +1,43 @@
 import { SignupButton } from "./SignupButton.tsx";
+import { calculateActiveButtons } from "../functions/Signup/calculateActiveButtons.ts";
+import { Box, CircularProgress, Grid } from "@mui/material";
+import { useCountries } from "../hooks/useCountries.ts";
 import { useState } from "react";
 
 export type ButtonOptions = {
   id: number;
   active: boolean;
   label: string;
-  onClick: (id: number) => void;
+  onClick: () => void;
 };
-
-const calculateChangeButtonStatus = (
-  changerId: number,
-  activeButtons: number[],
-  onlyOneActive: boolean,
-): number[] => {
-  if (onlyOneActive) return [changerId];
-  if (activeButtons.includes(changerId)) {
-    return activeButtons.filter((value) => value !== changerId);
-  } else {
-    return [...activeButtons, changerId];
-  }
-};
-
 export const ButtonGrid = () => {
-  const [activeButtons, setActiveButtons] = useState<number[]>([]);
+  const { data, isLoading, error } = useCountries();
 
-  const testOptions: ButtonOptions = {
-    id: 1,
-    active: activeButtons.includes(1),
-    label: "Czech",
-    onClick: (id: number) => onChangeButtonStatus(id),
-  };
-  const testOptions2: ButtonOptions = {
-    id: 2,
-    active: activeButtons.includes(2),
-    label: "Polish",
-    onClick: (id: number) => onChangeButtonStatus(id),
-  };
+  if (error) return null;
+  if (isLoading) return <CircularProgress />;
+
+  const [activeButtons, setActiveButtons] = useState<number[]>([]);
+  const buttons: ButtonOptions[] = data.map((country) => ({
+    id: country.id,
+    active: activeButtons.includes(country.id),
+    label: country.label,
+    onClick: () => onChangeButtonStatus(country.id),
+  }));
 
   const onChangeButtonStatus = (id: number) => {
-    setActiveButtons(calculateChangeButtonStatus(id, activeButtons, true));
+    setActiveButtons(calculateActiveButtons(id, activeButtons, false));
   };
-
   return (
     <>
-      <SignupButton buttonOptions={testOptions} />
-      <SignupButton buttonOptions={testOptions2} />
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2} columnSpacing={2}>
+          {Array.from(buttons).map((options) => (
+            <Grid item key={options.id}>
+              <SignupButton buttonOptions={options} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </>
   );
 };

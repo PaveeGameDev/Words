@@ -1,4 +1,4 @@
-export const calculateChangeButtonStatus = (
+export const calculateActiveButtons = (
   changerId: number,
   activeButtons: number[],
   onlyOneActive: boolean,

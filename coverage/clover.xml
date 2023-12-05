@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1701806091828" clover="3.2.0">
+  <project timestamp="1701806091828" name="All files">
+    <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2" elements="10" coveredelements="10" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
+    <file name="calculateActiveButtons.ts" path="C:\Users\patri_h9qoymr\ReactProjects\Words\src\functions\Signup\calculateActiveButtons.ts">
+      <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="6" count="4" type="cond" truecount="1" falsecount="0"/>
+      <line num="7" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="8" count="3" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
+    </file>
+  </project>
+</coverage>

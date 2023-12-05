@@ -10,7 +10,7 @@ export const SignupButton = ({ buttonOptions }: Props) => {
     <>
       <Button
         variant={buttonOptions.active ? "contained" : "outlined"}
-        onClick={() => buttonOptions.onClick(buttonOptions.id)}
+        onClick={() => buttonOptions.onClick()}
       >
         {buttonOptions.label}
       </Button>
