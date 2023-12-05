@@ -7,4 +7,12 @@ export default [
     id: 1,
     label: "Polish",
   },
+  {
+    id: 2,
+    label: "Slovakia",
+  },
+  {
+    id: 3,
+    label: "German",
+  },
 ];
