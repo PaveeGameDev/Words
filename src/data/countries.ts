@@ -1,18 +1,18 @@
 export default [
   {
     id: 0,
-    label: "Czech",
+    name: "Czech",
   },
   {
     id: 1,
-    label: "Polish",
+    name: "Polish",
   },
   {
     id: 2,
-    label: "Slovakia",
+    name: "Slovakia",
   },
   {
     id: 3,
-    label: "German",
+    name: "German",
   },
 ];
