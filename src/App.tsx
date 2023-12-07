@@ -1,10 +1,10 @@
 import "./App.css";
-import { ButtonGrid } from "./Components/ButtonGrid.tsx";
+import { Signup } from "@/Components/Signup.tsx";
 
 function App() {
   return (
     <>
-      <ButtonGrid />
+      <Signup />
     </>
   );
 }
