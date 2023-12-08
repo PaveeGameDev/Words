@@ -10,7 +10,7 @@ type Props = {
   rightOptions: { onRight: () => void; canRight: boolean };
 };
 
-export const WordCart = ({
+export const WordCard = ({
   word,
   children,
   leftOptions,
