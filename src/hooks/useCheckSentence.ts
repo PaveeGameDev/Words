@@ -1,11 +1,14 @@
-import {CheckSentenceData} from "@/hooks/checkSentenceData.ts";
+import { CheckSentenceData } from "@/hooks/checkSentenceData.ts";
+import checkWord from "@/data/checkWord.ts";
 
-export const useCountries = (): {
+export const useCheckSentence = (
+  answer: string,
+): {
   data: CheckSentenceData;
   isLoading: boolean;
   error: boolean | null;
 } => ({
-  data: ,
+  data: checkWord,
   isLoading: false,
   error: null,
 });
