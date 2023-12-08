@@ -1,6 +1,7 @@
 export type WordData = {
   word: string;
-  description: string;
-  translation: string;
-  example: string;
+  description: string[];
+  synonyms: string[];
+  translation: string[];
+  example: string[];
 };

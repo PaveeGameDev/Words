@@ -3,6 +3,7 @@ import React from "react";
 import { WordData } from "@/hooks/wordData.ts";
 import { goToPage } from "@/functions/TodysWord/goToPage.ts";
 import { WordCard } from "@/Components/Cards/WordCard.tsx";
+import { Box, Typography } from "@mui/material";
 
 type Props = {
   maxPages: number;
@@ -43,7 +44,32 @@ export const DefinitionCard = ({
         canLeft: !pageSetup?.isFirstPage,
       }}
     >
-      {word.description}
+      <Typography variant="h4">Definition</Typography>
+      {word.description.map((description, index) => (
+        <Box key={index}>
+          <Typography variant="h5">{description}</Typography>
+          <br />
+        </Box>
+      ))}
+      <br />
+      <br />
+
+      {word.synonyms.map((description, index) => (
+        <Box key={index}>
+          <Typography variant="h5">{description}</Typography>
+          <br />
+        </Box>
+      ))}
+
+      <br />
+      <br />
+
+      {word.translation.map((description, index) => (
+        <Box key={index}>
+          <Typography variant="h5">{description}</Typography>
+          <br />
+        </Box>
+      ))}
     </WordCard>
   );
 };
