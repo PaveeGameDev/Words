@@ -11,7 +11,7 @@ type Props = {
   word: WordData;
 };
 
-export const DefinitionCard = ({
+export const ExampleCard = ({
   pageSetup,
   setPageSetup,
   word,
@@ -43,7 +43,7 @@ export const DefinitionCard = ({
         canLeft: !pageSetup?.isFirstPage,
       }}
     >
-      {word.description}
+      {word.example}
     </WordCard>
   );
 };
