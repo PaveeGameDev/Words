@@ -1,10 +1,19 @@
 import "./App.css";
-import { Signup } from "@/Components/Signup.tsx";
+import { WordCart } from "@/Components/WordCart.tsx";
+import { useTodayWord } from "@/hooks/useTodayWord.ts";
 
 function App() {
+  const word = useTodayWord();
+
   return (
     <>
-      <Signup />
+      <WordCart
+        word={word.data.word}
+        rightOptions={{ onRight: () => console.log("right"), canRight: true }}
+        leftOptions={{ onLeft: () => console.log("left"), canLeft: true }}
+      >
+        {word.data.description}
+      </WordCart>
     </>
   );
 }
