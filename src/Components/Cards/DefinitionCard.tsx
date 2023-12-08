@@ -1,9 +1,9 @@
 import { PageSetup } from "@/Components/TodayWord.tsx";
 import React from "react";
 import { WordData } from "@/hooks/wordData.ts";
-import { goToPage } from "@/functions/TodysWord/goToPage.ts";
+import { goToPage } from "@/functions/TodayWord/goToPage.ts";
 import { WordCard } from "@/Components/Cards/WordCard.tsx";
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 type Props = {
   maxPages: number;
@@ -43,33 +43,59 @@ export const DefinitionCard = ({
           ),
         canLeft: !pageSetup?.isFirstPage,
       }}
+      label="Definition"
     >
-      <Typography variant="h4">Definition</Typography>
-      {word.description.map((description, index) => (
-        <Box key={index}>
-          <Typography variant="h5">{description}</Typography>
-          <br />
+      <Stack
+        direction="column"
+        justifyContent="space-between"
+        alignItems="flex-start"
+        spacing={2}
+        sx={{ height: "100%" }}
+      >
+        <Box>
+          {word.description.map((description, index) => (
+            <Box key={index}>
+              <Typography variant="h5">{description}</Typography>
+              <br />
+            </Box>
+          ))}
         </Box>
-      ))}
-      <br />
-      <br />
 
-      {word.synonyms.map((description, index) => (
-        <Box key={index}>
-          <Typography variant="h5">{description}</Typography>
-          <br />
-        </Box>
-      ))}
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          width="100%"
+          spacing={3}
+          marginBottom="2em !important"
+        >
+          <Stack
+            direction="column"
+            justifyContent="center"
+            alignItems="flex-start"
+            spacing={2}
+          >
+            {word.synonyms.map((description, index) => (
+              <Box key={index}>
+                <Typography variant="h5">{description}</Typography>
+              </Box>
+            ))}
+          </Stack>
 
-      <br />
-      <br />
-
-      {word.translation.map((description, index) => (
-        <Box key={index}>
-          <Typography variant="h5">{description}</Typography>
-          <br />
-        </Box>
-      ))}
+          <Stack
+            direction="column"
+            justifyContent="center"
+            alignItems="flex-end"
+            spacing={2}
+          >
+            {word.translation.map((description, index) => (
+              <Box key={index}>
+                <Typography variant="h5">{description}</Typography>
+              </Box>
+            ))}
+          </Stack>
+        </Stack>
+      </Stack>
     </WordCard>
   );
 };

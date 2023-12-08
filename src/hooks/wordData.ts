@@ -4,4 +4,5 @@ export type WordData = {
   synonyms: string[];
   translation: string[];
   example: string[];
+  [key: string]: string | string[];
 };

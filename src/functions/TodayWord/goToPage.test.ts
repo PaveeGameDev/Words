@@ -1,4 +1,4 @@
-import { goToPage } from "@/functions/TodysWord/goToPage.ts";
+import { goToPage } from "@/functions/TodayWord/goToPage.ts";
 
 describe("goToPage function", () => {
   it("should return the correct object if targetPage is within the valid range", () => {

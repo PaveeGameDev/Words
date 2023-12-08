@@ -3,7 +3,7 @@ import React from "react";
 import { WordData } from "@/hooks/wordData.ts";
 import { goToPage } from "@/functions/TodayWord/goToPage.ts";
 import { WordCard } from "@/Components/Cards/WordCard.tsx";
-import { Box, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 
 type Props = {
   maxPages: number;
@@ -12,7 +12,7 @@ type Props = {
   word: WordData;
 };
 
-export const ExampleCard = ({
+export const SuccessCard = ({
   pageSetup,
   setPageSetup,
   word,
@@ -43,14 +43,23 @@ export const ExampleCard = ({
           ),
         canLeft: !pageSetup?.isFirstPage,
       }}
-      label="Examples"
+      label={
+        Math.floor(Math.random() * (2 - 1 + 1) + 1) > 1
+          ? "Congratulations"
+          : "Good Job"
+      }
     >
-      {word.example.map((description, index) => (
-        <Box key={index}>
-          <Typography variant="h5">{description}</Typography>
-          <br />
-        </Box>
-      ))}
+      <Stack
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}
+        sx={{ height: "100%", width: "100%" }}
+      >
+        <Typography variant="h4">The word</Typography>
+        <Typography variant="h2">{word.word}</Typography>
+        <Typography variant="h4">successfully learned</Typography>
+      </Stack>
     </WordCard>
   );
 };
