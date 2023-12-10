@@ -92,7 +92,7 @@ export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
             <Typography variant="h6">Check with AI</Typography>
           </Button>
           {answerStatus?.isLoading && <CircularProgress />}
-          {answerStatus?.data?.score > 4 && (
+          {answerStatus?.data && answerStatus.data?.score > 4 && (
             <Box
               sx={{
                 width: "2em",
@@ -122,7 +122,7 @@ export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
               </svg>
             </Box>
           )}
-          {answerStatus?.data?.score <= 4 && (
+          {answerStatus?.data && answerStatus.data?.score <= 4 && (
             <Box
               sx={{
                 width: "2em",
