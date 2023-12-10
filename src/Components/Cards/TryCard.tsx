@@ -6,6 +6,8 @@ import { WordCard } from "@/Components/Cards/WordCard.tsx";
 import {
   Box,
   Button,
+  Card,
+  CardContent,
   CircularProgress,
   Stack,
   TextField,
@@ -23,6 +25,8 @@ type Props = {
 
 export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
   const [userInput, setUserInput] = useState("");
+
+  const passPoints: number = 4;
 
   const [answerStatus, setAnswerStatus] = useState<{
     data: CheckSentenceData;
@@ -59,7 +63,7 @@ export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
           ),
         canLeft: !pageSetup?.isFirstPage,
       }}
-      label="Try it yourself"
+      label={`Use "${word.word}" in a sentence`}
     >
       <Stack
         direction="column"
@@ -121,7 +125,7 @@ export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
               </svg>
             </Box>
           )}
-          {answerStatus?.data && answerStatus.data?.score <= 4 && (
+          {answerStatus?.data && answerStatus.data?.score <= passPoints && (
             <Box
               sx={{
                 width: "2em",
@@ -134,6 +138,16 @@ export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
             </Box>
           )}
         </Stack>
+
+        {answerStatus?.data && answerStatus.data?.score <= passPoints && (
+          <Card>
+            <CardContent>
+              <Typography>Reason:</Typography>
+              <br />
+              <Typography>{answerStatus.data.reason}</Typography>
+            </CardContent>
+          </Card>
+        )}
       </Stack>
     </WordCard>
   );

@@ -34,7 +34,13 @@ export const WordCard = ({
         sx={{ flex: 1 }} // Allow this Stack to take up the remaining space
       >
         <WordToLearnDisplay word={word} />
-        <Divider sx={{ width: "-webkit-fill-available", height: "10px" }} />
+        <Divider
+          sx={{
+            width: "-webkit-fill-available",
+            height: "10px",
+            margin: "0 !important",
+          }}
+        />
         <Box>
           <Typography variant="h4">{label}</Typography>
         </Box>

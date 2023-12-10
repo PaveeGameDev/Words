@@ -66,34 +66,42 @@ export const DefinitionCard = ({
           justifyContent="space-between"
           alignItems="center"
           width="100%"
-          spacing={3}
           marginBottom="2em !important"
         >
-          <Stack
-            direction="column"
-            justifyContent="center"
-            alignItems="flex-start"
-            spacing={2}
-          >
-            {word.synonyms.map((description, index) => (
-              <Box key={index}>
-                <Typography variant="h5">{description}</Typography>
-              </Box>
-            ))}
-          </Stack>
-
-          <Stack
-            direction="column"
-            justifyContent="center"
-            alignItems="flex-end"
-            spacing={2}
-          >
-            {word.translation.map((description, index) => (
-              <Box key={index}>
-                <Typography variant="h5">{description}</Typography>
-              </Box>
-            ))}
-          </Stack>
+          <Box>
+            <Typography ml={3} mb={2} variant="h5">
+              Synonyms
+            </Typography>
+            <Stack
+              direction="column"
+              justifyContent="center"
+              alignItems="flex-start"
+              spacing={2}
+            >
+              {word.synonyms.map((description, index) => (
+                <Box key={index}>
+                  <Typography variant="h5">{description}</Typography>
+                </Box>
+              ))}
+            </Stack>
+          </Box>
+          <Box>
+            <Typography mr={3} mb={2} variant="h5">
+              Translations
+            </Typography>
+            <Stack
+              direction="column"
+              justifyContent="center"
+              alignItems="flex-end"
+              spacing={2}
+            >
+              {word.translation.map((description, index) => (
+                <Box key={index}>
+                  <Typography variant="h5">{description}</Typography>
+                </Box>
+              ))}
+            </Stack>
+          </Box>
         </Stack>
       </Stack>
     </WordCard>
