@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 import { useCheckSentence } from "@/hooks/useCheckSentence.ts";
 import { CheckSentenceData } from "@/hooks/checkSentenceData.ts";
-import { Image } from "@mui/icons-material";
 
 type Props = {
   maxPages: number;
