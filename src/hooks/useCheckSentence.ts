@@ -7,8 +7,10 @@ export const useCheckSentence = (
   data: CheckSentenceData;
   isLoading: boolean;
   error: boolean | null;
+  tempAnswer: string;
 } => ({
   data: checkWord,
   isLoading: false,
   error: null,
+  tempAnswer: answer,
 });
