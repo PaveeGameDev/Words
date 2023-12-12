@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { useCheckSentence } from "@/hooks/useCheckSentence.ts";
 import { CheckSentenceData } from "@/hooks/checkSentenceData.ts";
+import { AfterBackendSendType } from "@/hooks/afterBackendSendType.ts";
 
 type Props = {
   maxPages: number;
@@ -28,11 +29,8 @@ export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
 
   const passPoints: number = 4;
 
-  const [answerStatus, setAnswerStatus] = useState<{
-    data: CheckSentenceData;
-    isLoading: boolean;
-    error: boolean | null;
-  }>();
+  const [answerStatus, setAnswerStatus] =
+    useState<AfterBackendSendType<CheckSentenceData>>();
 
   const checkAnswer = (answer: string): void => {
     setAnswerStatus(useCheckSentence(answer));
@@ -134,7 +132,7 @@ export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
                 alignItems: "streach",
               }}
             >
-              <img src="/src/assets/failed.png" />
+              <img src="/src/assets/sentenceFailed.png" />
             </Box>
           )}
         </Stack>

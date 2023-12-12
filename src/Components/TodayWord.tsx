@@ -1,10 +1,11 @@
-import { useTodayWord } from "@/hooks/useTodayWord.ts";
 import { goToPage } from "@/functions/TodayWord/goToPage.ts";
 import { useState } from "react";
 import { DefinitionCard } from "@/Components/Cards/DefinitionCard.tsx";
 import { ExampleCard } from "@/Components/Cards/ExampleCard.tsx";
 import { TryCard } from "@/Components/Cards/TryCard.tsx";
 import { SuccessCard } from "@/Components/Cards/SuccessCard.tsx";
+import { WordData } from "@/hooks/wordData.ts";
+import { AfterBackendSendType } from "@/hooks/afterBackendSendType.ts";
 
 export type PageSetup = {
   currentPage: number;
@@ -12,9 +13,11 @@ export type PageSetup = {
   isLastPage: boolean;
 };
 
-export const TodayWord = () => {
-  const word = useTodayWord();
+type Props = {
+  word: AfterBackendSendType<WordData>;
+};
 
+export const TodayWord = ({ word }: Props) => {
   const maxPages = 3;
 
   const [pageSetup, setPageSetup] = useState<PageSetup>(

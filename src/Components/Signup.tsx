@@ -4,25 +4,15 @@ import { ButtonData } from "@/hooks/buttonData.ts";
 import { Typography } from "@mui/material";
 import { useProficiencyLevels } from "@/hooks/useProficiencyLevels.ts";
 import { useInterests } from "@/hooks/useInterests.ts";
+import { AfterBackendSendType } from "@/hooks/afterBackendSendType.ts";
 
 export const Signup = () => {
-  const countries: {
-    data: ButtonData[];
-    isLoading: boolean;
-    error: boolean | null;
-  } = useCountries();
+  const countries: AfterBackendSendType<ButtonData[]> = useCountries();
 
-  const proficiencyLevels: {
-    data: ButtonData[];
-    isLoading: boolean;
-    error: boolean | null;
-  } = useProficiencyLevels();
+  const proficiencyLevels: AfterBackendSendType<ButtonData[]> =
+    useProficiencyLevels();
 
-  const interests: {
-    data: ButtonData[];
-    isLoading: boolean;
-    error: boolean | null;
-  } = useInterests();
+  const interests: AfterBackendSendType<ButtonData[]> = useInterests();
 
   return (
     <>
