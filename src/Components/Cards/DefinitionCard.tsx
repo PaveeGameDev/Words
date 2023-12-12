@@ -3,7 +3,7 @@ import React from "react";
 import { WordData } from "@/hooks/wordData.ts";
 import { goToPage } from "@/functions/TodayWord/goToPage.ts";
 import { WordCard } from "@/Components/Cards/WordCard.tsx";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Divider, Stack, Typography } from "@mui/material";
 
 type Props = {
   maxPages: number;
@@ -85,6 +85,7 @@ export const DefinitionCard = ({
               ))}
             </Stack>
           </Box>
+          <Divider orientation="vertical" flexItem />
           <Box>
             <Typography mr={3} mb={2} variant="h5">
               Translations

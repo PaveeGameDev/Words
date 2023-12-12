@@ -13,6 +13,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import sentenceFailed from "@/assets/sentenceFailed.png";
 import { useCheckSentence } from "@/hooks/useCheckSentence.ts";
 import { CheckSentenceData } from "@/hooks/checkSentenceData.ts";
 import { AfterBackendSendType } from "@/hooks/afterBackendSendType.ts";
@@ -132,7 +133,7 @@ export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
                 alignItems: "streach",
               }}
             >
-              <img src="/src/assets/sentenceFailed.png" />
+              <img src={sentenceFailed} alt="sentence failed" />
             </Box>
           )}
         </Stack>

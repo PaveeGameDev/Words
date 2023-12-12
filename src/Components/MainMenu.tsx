@@ -11,8 +11,11 @@ export const MainMenu = ({ word, onStartLearning }: Props) => {
     <>
       <Stack direction="column" alignItems="center" spacing={10}>
         <Typography variant="h1" sx={{ textAlign: "center" }}>
-          Word a day app
+          Daily Word Wisdom
+          {/*OneTermTutor*/}
+          {/*WordPerDayGuide*/}
         </Typography>
+
         <Button
           variant="outlined"
           size="large"
