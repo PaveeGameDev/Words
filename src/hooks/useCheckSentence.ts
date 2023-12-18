@@ -1,16 +1,25 @@
 import { CheckSentenceData } from "@/hooks/checkSentenceData.ts";
-import checkWord from "@/data/checkWord.ts";
+import { useData } from "@/hooks/useData.ts";
 
 export const useCheckSentence = (
   answer: string,
+  numOfCalls: number,
 ): {
   data: CheckSentenceData;
   isLoading: boolean;
-  error: boolean | null;
-  tempAnswer: string;
-} => ({
-  data: checkWord,
-  isLoading: false,
-  error: null,
-  tempAnswer: answer,
-});
+  error: string;
+} => {
+  const response = useData<CheckSentenceData>(
+    "/word/checkWord",
+    {
+      method: "post",
+      data: { sentence: answer },
+    },
+    [numOfCalls],
+  );
+  return {
+    data: response.data[0],
+    isLoading: response.isLoading,
+    error: response.error,
+  };
+};

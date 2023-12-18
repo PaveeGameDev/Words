@@ -15,9 +15,6 @@ import {
 } from "@mui/material";
 import sentenceFailed from "@/assets/sentenceFailed.png";
 import { useCheckSentence } from "@/hooks/useCheckSentence.ts";
-import { CheckSentenceData } from "@/hooks/checkSentenceData.ts";
-import { AfterBackendSendType } from "@/hooks/afterBackendSendType.ts";
-
 type Props = {
   maxPages: number;
   pageSetup: PageSetup;
@@ -27,14 +24,14 @@ type Props = {
 
 export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
   const [userInput, setUserInput] = useState("");
-
   const passPoints: number = 4;
+  const [numOfCalls, setNumOfCalls] = useState<number>(0);
+  const answerStatus = useCheckSentence(userInput, numOfCalls);
 
-  const [answerStatus, setAnswerStatus] =
-    useState<AfterBackendSendType<CheckSentenceData>>();
-
-  const checkAnswer = (answer: string): void => {
-    setAnswerStatus(useCheckSentence(answer));
+  const checkAnswer = (): void => {
+    if (userInput.length > 0) {
+      setNumOfCalls(numOfCalls + 1);
+    }
   };
 
   return (
@@ -89,7 +86,7 @@ export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
           <Button
             sx={{ height: "4em", width: "15em" }}
             variant="outlined"
-            onClick={() => checkAnswer(userInput)}
+            onClick={() => checkAnswer()}
           >
             <Typography variant="h6">Check with AI</Typography>
           </Button>

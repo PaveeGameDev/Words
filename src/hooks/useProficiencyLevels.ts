@@ -1,12 +1,15 @@
 import { ButtonData } from "@/hooks/buttonData.ts";
-import proficiencyLevels from "@/data/proficiencyLevels.ts";
+import { useData } from "@/hooks/useData.ts";
 
 export const useProficiencyLevels = (): {
   data: ButtonData[];
   isLoading: boolean;
-  error: boolean | null;
-} => ({
-  data: proficiencyLevels,
-  isLoading: false,
-  error: null,
-});
+  error: string;
+} => {
+  const response = useData<ButtonData>("/signup/proficiencyLevels");
+  return {
+    data: response.data,
+    isLoading: response.isLoading,
+    error: response.error,
+  };
+};

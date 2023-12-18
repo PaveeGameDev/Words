@@ -43,7 +43,8 @@ export const useData = <T>(
             ...requestConfig,
           })
           .then((res) => {
-            setData(res.data.results);
+            // @ts-ignore
+            setData(res.data);
             setLoading(false);
           })
           .catch((err) => {

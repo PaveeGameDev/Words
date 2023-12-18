@@ -14,7 +14,7 @@ export type ButtonOptions = {
 type Props = {
   data: ButtonData[];
   isLoading: boolean;
-  error: boolean | null;
+  error: string;
   onlyOneActive: boolean;
 };
 export const ButtonGrid = ({

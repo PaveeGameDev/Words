@@ -1,12 +1,15 @@
 import { ButtonData } from "@/hooks/buttonData.ts";
-import interests from "@/data/interests.ts";
+import { useData } from "@/hooks/useData.ts";
 
 export const useInterests = (): {
   data: ButtonData[];
   isLoading: boolean;
-  error: boolean | null;
-} => ({
-  data: interests,
-  isLoading: false,
-  error: null,
-});
+  error: string;
+} => {
+  const response = useData<ButtonData>("/signup/interests");
+  return {
+    data: response.data,
+    isLoading: response.isLoading,
+    error: response.error,
+  };
+};

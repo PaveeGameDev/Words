@@ -5,6 +5,7 @@ import { useState } from "react";
 import { AfterBackendSendType } from "@/hooks/afterBackendSendType.ts";
 import { WordData } from "@/hooks/wordData.ts";
 import { useTodayWord } from "@/hooks/useTodayWord.ts";
+// import { Signup } from "@/Components/Signup.tsx";
 
 function App() {
   const word: AfterBackendSendType<WordData> = useTodayWord();
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <>
+      {/*<Signup />*/}
       {learningWord ? (
         <TodayWord word={word} />
       ) : (
