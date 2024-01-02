@@ -10,6 +10,7 @@ type Props = {
   pageSetup: PageSetup;
   setPageSetup: React.Dispatch<React.SetStateAction<PageSetup>>;
   word: WordData;
+  goToMainMenu: () => void;
 };
 
 export const ExampleCard = ({
@@ -17,6 +18,7 @@ export const ExampleCard = ({
   setPageSetup,
   word,
   maxPages,
+  goToMainMenu,
 }: Props) => {
   return (
     <WordCard
@@ -44,6 +46,7 @@ export const ExampleCard = ({
         canLeft: !pageSetup?.isFirstPage,
       }}
       label="Examples"
+      goToMainMenu={goToMainMenu}
     >
       {word.example.map((description, index) => (
         <Box key={index}>

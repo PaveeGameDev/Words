@@ -14,11 +14,15 @@ function App() {
     setLearningWord(true);
   };
 
+  const goToMainMenu = (): void => {
+    setLearningWord(false);
+  };
+
   return (
     <>
       {/*<Signup />*/}
       {learningWord ? (
-        <TodayWord word={word} />
+        <TodayWord word={word} goToMainMenu={goToMainMenu} />
       ) : (
         <MainMenu word={word.data} onStartLearning={goToLearnWord} />
       )}

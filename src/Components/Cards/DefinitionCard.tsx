@@ -10,6 +10,7 @@ type Props = {
   pageSetup: PageSetup;
   setPageSetup: React.Dispatch<React.SetStateAction<PageSetup>>;
   word: WordData;
+  goToMainMenu: () => void;
 };
 
 export const DefinitionCard = ({
@@ -17,6 +18,7 @@ export const DefinitionCard = ({
   setPageSetup,
   word,
   maxPages,
+  goToMainMenu,
 }: Props) => {
   return (
     <WordCard
@@ -44,6 +46,7 @@ export const DefinitionCard = ({
         canLeft: !pageSetup?.isFirstPage,
       }}
       label="Definition"
+      goToMainMenu={goToMainMenu}
     >
       <Stack
         direction="column"

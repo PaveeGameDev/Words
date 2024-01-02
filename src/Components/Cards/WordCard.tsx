@@ -9,6 +9,7 @@ type Props = {
   children: ReactNode;
   leftOptions: { onLeft: () => void; canLeft: boolean };
   rightOptions: { onRight: () => void; canRight: boolean };
+  goToMainMenu: () => void;
 };
 
 export const WordCard = ({
@@ -17,6 +18,7 @@ export const WordCard = ({
   children,
   leftOptions,
   rightOptions,
+  goToMainMenu,
 }: Props) => {
   return (
     <Grid
@@ -33,7 +35,7 @@ export const WordCard = ({
           spacing={2}
           sx={{ height: "84vh" }}
         >
-          <WordToLearnDisplay word={word} />
+          <WordToLearnDisplay word={word} onHomeClick={goToMainMenu} />
           <Divider
             sx={{
               width: "-webkit-fill-available",

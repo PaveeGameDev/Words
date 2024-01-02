@@ -10,6 +10,7 @@ type Props = {
   pageSetup: PageSetup;
   setPageSetup: React.Dispatch<React.SetStateAction<PageSetup>>;
   word: WordData;
+  goToMainMenu: () => void;
 };
 
 export const SuccessCard = ({
@@ -17,6 +18,7 @@ export const SuccessCard = ({
   setPageSetup,
   word,
   maxPages,
+  goToMainMenu,
 }: Props) => {
   return (
     <WordCard
@@ -48,6 +50,7 @@ export const SuccessCard = ({
           ? "Congratulations"
           : "Good Job"
       }
+      goToMainMenu={goToMainMenu}
     >
       <Stack
         direction="column"

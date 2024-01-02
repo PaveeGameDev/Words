@@ -15,9 +15,10 @@ export type PageSetup = {
 
 type Props = {
   word: AfterBackendSendType<WordData>;
+  goToMainMenu: () => void;
 };
 
-export const TodayWord = ({ word }: Props) => {
+export const TodayWord = ({ word, goToMainMenu }: Props) => {
   const maxPages = 3;
 
   const [pageSetup, setPageSetup] = useState<PageSetup>(
@@ -32,6 +33,7 @@ export const TodayWord = ({ word }: Props) => {
           pageSetup={pageSetup}
           setPageSetup={setPageSetup}
           word={word.data}
+          goToMainMenu={goToMainMenu}
         />
       );
 
@@ -42,6 +44,7 @@ export const TodayWord = ({ word }: Props) => {
           pageSetup={pageSetup}
           setPageSetup={setPageSetup}
           word={word.data}
+          goToMainMenu={goToMainMenu}
         />
       );
 
@@ -52,6 +55,7 @@ export const TodayWord = ({ word }: Props) => {
           pageSetup={pageSetup}
           setPageSetup={setPageSetup}
           word={word.data}
+          goToMainMenu={goToMainMenu}
         />
       );
 
@@ -62,6 +66,7 @@ export const TodayWord = ({ word }: Props) => {
           pageSetup={pageSetup}
           setPageSetup={setPageSetup}
           word={word.data}
+          goToMainMenu={goToMainMenu}
         />
       );
   }

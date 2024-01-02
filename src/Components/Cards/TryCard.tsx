@@ -20,9 +20,16 @@ type Props = {
   pageSetup: PageSetup;
   setPageSetup: React.Dispatch<React.SetStateAction<PageSetup>>;
   word: WordData;
+  goToMainMenu: () => void;
 };
 
-export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
+export const TryCard = ({
+  pageSetup,
+  setPageSetup,
+  word,
+  maxPages,
+  goToMainMenu,
+}: Props) => {
   const [userInput, setUserInput] = useState("");
   const passPoints: number = 4;
   const [numOfCalls, setNumOfCalls] = useState<number>(0);
@@ -60,6 +67,7 @@ export const TryCard = ({ pageSetup, setPageSetup, word, maxPages }: Props) => {
         canLeft: !pageSetup?.isFirstPage,
       }}
       label={`Use "${word.word}" in a sentence`}
+      goToMainMenu={goToMainMenu}
     >
       <Stack
         direction="column"
